@@ -1,10 +1,10 @@
 <?php
 
-namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient\Tests;
+namespace ChrisReedIO\OpenAI\SDK\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use ChrisReedIO\\OpenAI\\SDK\OpenAiClient\OpenAiClientServiceProvider;
+use ChrisReedIO\OpenAI\SDK\OpenAiClientServiceProvider;
 
 class TestCase extends Orchestra
 {

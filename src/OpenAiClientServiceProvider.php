@@ -1,10 +1,10 @@
 <?php
 
-namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient;
+namespace ChrisReedIO\OpenAI\SDK;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ChrisReedIO\\OpenAI\\SDK\OpenAiClient\Commands\OpenAiClientCommand;
+use ChrisReedIO\OpenAI\SDK\Commands\OpenAiClientCommand;
 
 class OpenAiClientServiceProvider extends PackageServiceProvider
 {

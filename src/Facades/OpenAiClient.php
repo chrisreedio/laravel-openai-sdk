@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient\Facades;
+namespace ChrisReedIO\OpenAI\SDK\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

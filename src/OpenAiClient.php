@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient;
+namespace ChrisReedIO\OpenAI\SDK;
 
 class OpenAiClient
 {

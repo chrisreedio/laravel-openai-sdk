@@ -1,6 +1,6 @@
 <?php
 
-// config for ChrisReedIO\\OpenAI\\SDK/OpenAiClient
+// config for ChrisReedIO\OpenAI\SDK/OpenAiClient
 return [
 
 ];

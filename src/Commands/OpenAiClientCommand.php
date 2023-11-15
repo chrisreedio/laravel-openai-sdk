@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient\Commands;
+namespace ChrisReedIO\OpenAI\SDK\Commands;
 
 use Illuminate\Console\Command;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient\Database\Factories;
+namespace ChrisReedIO\OpenAI\SDK\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "ChrisReedIO\\OpenAI\\SDK\\OpenAiClient\\": "src/",
-            "ChrisReedIO\\OpenAI\\SDK\\OpenAiClient\\Database\\Factories\\": "database/factories/"
+            "ChrisReedIO\\OpenAI\\SDK\\": "src/",
+            "ChrisReedIO\\OpenAI\\SDK\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ChrisReedIO\\OpenAI\\SDK\\OpenAiClient\\Tests\\": "tests/",
+            "ChrisReedIO\\OpenAI\\SDK\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -72,10 +72,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ChrisReedIO\\OpenAI\\SDK\\OpenAiClient\\OpenAiClientServiceProvider"
+                "ChrisReedIO\\OpenAI\\SDK\\OpenAiClientServiceProvider"
             ],
             "aliases": {
-                "OpenAiClient": "ChrisReedIO\\OpenAI\\SDK\\OpenAiClient\\Facades\\OpenAiClient"
+                "OpenAiClient": "ChrisReedIO\\OpenAI\\SDK\\Facades\\OpenAiClient"
             }
         }
     },
