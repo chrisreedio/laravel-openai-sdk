@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use ChrisReedIO\\OpenAI\\SDK\OpenAiClient\Commands\OpenAiClientCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class OpenAiClientServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('laravel-openai-sdk')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_laravel-openai-sdk_table')
+            ->hasCommand(OpenAiClientCommand::class);
     }
 }

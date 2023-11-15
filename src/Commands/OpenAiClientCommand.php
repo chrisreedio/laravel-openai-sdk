@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace ChrisReedIO\\OpenAI\\SDK\OpenAiClient\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class OpenAiClientCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-openai-sdk';
 
     public $description = 'My command';
 
