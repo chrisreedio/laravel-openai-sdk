@@ -30,7 +30,6 @@ use ChrisReedIO\OpenAI\SDK\Requests\Assistants\ModifyMessage;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\ModifyRun;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\ModifyThread;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\SubmitToolOuputsToRun;
-// use ChrisReedIO\OpenAI\SDK\Resources\Resource;
 use ReflectionException;
 use Saloon\Http\Response;
 use Throwable;

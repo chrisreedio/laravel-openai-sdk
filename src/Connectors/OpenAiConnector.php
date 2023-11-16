@@ -2,7 +2,8 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Connectors;
 
-// use ChrisReedIO\OpenAI\SDK\Resource\Assistants;
+use ChrisReedIO\OpenAI\SDK\Resources\Assistants;
+
 // use ChrisReedIO\OpenAI\SDK\Resource\Audio;
 // use ChrisReedIO\OpenAI\SDK\Resource\Chat;
 // use ChrisReedIO\OpenAI\SDK\Resource\Completions;
@@ -12,8 +13,8 @@ namespace ChrisReedIO\OpenAI\SDK\Connectors;
 // use ChrisReedIO\OpenAI\SDK\Resource\FineTunes;
 // use ChrisReedIO\OpenAI\SDK\Resource\FineTuning;
 // use ChrisReedIO\OpenAI\SDK\Resource\Images;
-// use ChrisReedIO\OpenAI\SDK\Resource\Models;
 // use ChrisReedIO\OpenAI\SDK\Resource\Moderations;
+use ChrisReedIO\OpenAI\SDK\Resources\Models;
 use Saloon\Http\Connector;
 
 /**
@@ -28,10 +29,20 @@ class OpenAiConnector extends Connector
         return 'https://api.openai.com/v1';
     }
 
-    public function assistants(): Assistants
+    public function __construct()
     {
-        return new Assistants($this);
+        $this->withTokenAuth(config('openai-sdk.api_key'));
     }
+
+    // public function assistants(): Assistants
+    // {
+    //     return new Assistants($this);
+    // }
+    //
+    // public function models(): Models
+    // {
+    //     return new Models($this);
+    // }
 
     // public function audio(): Audio
     // {
@@ -87,10 +98,6 @@ class OpenAiConnector extends Connector
     // }
     //
     //
-    public function models(): Models
-    {
-        return new Models($this);
-    }
     //
     //
     // public function moderations(): Moderations
