@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
+namespace ChrisReedIO\OpenAI\SDK\Requests\Runs;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;

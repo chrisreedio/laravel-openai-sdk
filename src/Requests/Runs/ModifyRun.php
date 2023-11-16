@@ -1,16 +1,20 @@
 <?php
 
-namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
+namespace ChrisReedIO\OpenAI\SDK\Requests\Runs;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 /**
- * getRun
+ * modifyRun
  */
-class GetRun extends Request
+class ModifyRun extends Request implements HasBody
 {
-    protected Method $method = Method::GET;
+    use HasJsonBody;
+
+    protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
     {
@@ -19,7 +23,7 @@ class GetRun extends Request
 
     /**
      * @param  string  $threadId The ID of the [thread](/docs/api-reference/threads) that was run.
-     * @param  string  $runId The ID of the run to retrieve.
+     * @param  string  $runId The ID of the run to modify.
      */
     public function __construct(
         protected string $threadId,

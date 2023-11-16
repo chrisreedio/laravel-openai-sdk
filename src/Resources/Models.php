@@ -24,7 +24,6 @@ class Models extends Resource
 		return $this->send(new ListModels())->dtoOrFail();
 	}
 
-
     /**
      * @param string $model The ID of the model to use for this request
      * @return Response

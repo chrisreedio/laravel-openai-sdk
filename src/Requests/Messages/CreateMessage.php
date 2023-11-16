@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
+namespace ChrisReedIO\OpenAI\SDK\Requests\Messages;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -8,9 +8,9 @@ use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
- * cancelRun
+ * createMessage
  */
-class CancelRun extends Request implements HasBody
+class CreateMessage extends Request implements HasBody
 {
     use HasJsonBody;
 
@@ -18,16 +18,14 @@ class CancelRun extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return "/threads/{$this->threadId}/runs/{$this->runId}/cancel";
+        return "/threads/{$this->threadId}/messages";
     }
 
     /**
-     * @param  string  $threadId The ID of the thread to which this run belongs.
-     * @param  string  $runId The ID of the run to cancel.
+     * @param  string  $threadId The ID of the [thread](/docs/api-reference/threads) to create a message for.
      */
     public function __construct(
         protected string $threadId,
-        protected string $runId,
     ) {
     }
 }

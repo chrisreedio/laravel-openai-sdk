@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
+namespace ChrisReedIO\OpenAI\SDK\Requests\Threads;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
