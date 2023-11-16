@@ -2,9 +2,9 @@
 
 namespace ChrisReedIO\OpenAI\SDK;
 
+use ChrisReedIO\OpenAI\SDK\Commands\OpenAiClientCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ChrisReedIO\OpenAI\SDK\Commands\OpenAiClientCommand;
 
 class OpenAiClientServiceProvider extends PackageServiceProvider
 {

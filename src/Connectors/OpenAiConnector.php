@@ -28,12 +28,10 @@ class OpenAiConnector extends Connector
         return 'https://api.openai.com/v1';
     }
 
-
     public function assistants(): Assistants
     {
         return new Assistants($this);
     }
-
 
     // public function audio(): Audio
     // {

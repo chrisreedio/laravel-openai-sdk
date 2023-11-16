@@ -2,7 +2,6 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,22 +12,20 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class CreateRun extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/threads/{$this->threadId}/runs";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/threads/{$this->threadId}/runs";
-	}
-
-
-	/**
-	 * @param string $threadId The ID of the thread to run.
-	 */
-	public function __construct(
-		protected string $threadId,
-	) {
-	}
+    /**
+     * @param  string  $threadId The ID of the thread to run.
+     */
+    public function __construct(
+        protected string $threadId,
+    ) {
+    }
 }

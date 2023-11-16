@@ -2,9 +2,9 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Tests;
 
+use ChrisReedIO\OpenAI\SDK\OpenAiClientServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use ChrisReedIO\OpenAI\SDK\OpenAiClientServiceProvider;
 
 class TestCase extends Orchestra
 {

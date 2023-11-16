@@ -2,7 +2,6 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,20 +10,18 @@ use Saloon\Http\Request;
  */
 class DeleteAssistant extends Request
 {
-	protected Method $method = Method::DELETE;
+    protected Method $method = Method::DELETE;
 
+    public function resolveEndpoint(): string
+    {
+        return "/assistants/{$this->assistantId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/assistants/{$this->assistantId}";
-	}
-
-
-	/**
-	 * @param string $assistantId The ID of the assistant to delete.
-	 */
-	public function __construct(
-		protected string $assistantId,
-	) {
-	}
+    /**
+     * @param  string  $assistantId The ID of the assistant to delete.
+     */
+    public function __construct(
+        protected string $assistantId,
+    ) {
+    }
 }
