@@ -35,68 +35,68 @@ class OpenAiConnector extends Connector
     }
 
 
-    public function audio(): Audio
-    {
-        return new Audio($this);
-    }
-
-
-    public function chat(): Chat
-    {
-        return new Chat($this);
-    }
-
-
-    public function completions(): Completions
-    {
-        return new Completions($this);
-    }
-
-
-    public function edits(): Edits
-    {
-        return new Edits($this);
-    }
-
-
-    public function embeddings(): Embeddings
-    {
-        return new Embeddings($this);
-    }
-
-
-    public function files(): Files
-    {
-        return new Files($this);
-    }
-
-
-    public function fineTunes(): FineTunes
-    {
-        return new FineTunes($this);
-    }
-
-
-    public function fineTuning(): FineTuning
-    {
-        return new FineTuning($this);
-    }
-
-
-    public function images(): Images
-    {
-        return new Images($this);
-    }
-
-
+    // public function audio(): Audio
+    // {
+    //     return new Audio($this);
+    // }
+    //
+    //
+    // public function chat(): Chat
+    // {
+    //     return new Chat($this);
+    // }
+    //
+    //
+    // public function completions(): Completions
+    // {
+    //     return new Completions($this);
+    // }
+    //
+    //
+    // public function edits(): Edits
+    // {
+    //     return new Edits($this);
+    // }
+    //
+    //
+    // public function embeddings(): Embeddings
+    // {
+    //     return new Embeddings($this);
+    // }
+    //
+    //
+    // public function files(): Files
+    // {
+    //     return new Files($this);
+    // }
+    //
+    //
+    // public function fineTunes(): FineTunes
+    // {
+    //     return new FineTunes($this);
+    // }
+    //
+    //
+    // public function fineTuning(): FineTuning
+    // {
+    //     return new FineTuning($this);
+    // }
+    //
+    //
+    // public function images(): Images
+    // {
+    //     return new Images($this);
+    // }
+    //
+    //
     public function models(): Models
     {
         return new Models($this);
     }
-
-
-    public function moderations(): Moderations
-    {
-        return new Moderations($this);
-    }
+    //
+    //
+    // public function moderations(): Moderations
+    // {
+    //     return new Moderations($this);
+    // }
 }
