@@ -16,11 +16,11 @@ use Throwable;
 class Runs extends BaseResource
 {
     /**
-     * @param string $threadId The ID of the thread the run belongs to.
-     * @param int|null $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
-     * @param string|null $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
-     * @param string|null $before A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.
-     * @return Response
+     * @param  string  $threadId The ID of the thread the run belongs to.
+     * @param  int|null  $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
+     * @param  string|null  $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
+     * @param  string|null  $before A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -30,8 +30,8 @@ class Runs extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to run.
-     * @return Response
+     * @param  string  $threadId The ID of the thread to run.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -41,9 +41,9 @@ class Runs extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the [thread](/docs/api-reference/threads) that was run.
-     * @param string $runId The ID of the run to retrieve.
-     * @return Response
+     * @param  string  $threadId The ID of the [thread](/docs/api-reference/threads) that was run.
+     * @param  string  $runId The ID of the run to retrieve.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -53,9 +53,9 @@ class Runs extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the [thread](/docs/api-reference/threads) that was run.
-     * @param string $runId The ID of the run to modify.
-     * @return Response
+     * @param  string  $threadId The ID of the [thread](/docs/api-reference/threads) that was run.
+     * @param  string  $runId The ID of the run to modify.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -65,9 +65,9 @@ class Runs extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the [thread](/docs/api-reference/threads) to which this run belongs.
-     * @param string $runId The ID of the run that requires the tool output submission.
-     * @return Response
+     * @param  string  $threadId The ID of the [thread](/docs/api-reference/threads) to which this run belongs.
+     * @param  string  $runId The ID of the run that requires the tool output submission.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -77,9 +77,9 @@ class Runs extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to which this run belongs.
-     * @param string $runId The ID of the run to cancel.
-     * @return Response
+     * @param  string  $threadId The ID of the thread to which this run belongs.
+     * @param  string  $runId The ID of the run to cancel.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */

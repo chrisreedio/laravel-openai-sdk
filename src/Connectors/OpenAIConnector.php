@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OpenAI\SDK\Connectors;
 
 use ChrisReedIO\OpenAI\SDK\Resources\Assistants;
-
 // use ChrisReedIO\OpenAI\SDK\Resource\Audio;
 // use ChrisReedIO\OpenAI\SDK\Resource\Chat;
 // use ChrisReedIO\OpenAI\SDK\Resource\Completions;

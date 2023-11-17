@@ -15,7 +15,6 @@ use Throwable;
 class Threads extends BaseResource
 {
     /**
-     * @return Response
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -25,8 +24,8 @@ class Threads extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to retrieve.
-     * @return Response
+     * @param  string  $threadId The ID of the thread to retrieve.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -36,8 +35,8 @@ class Threads extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to modify. Only the `metadata` can be modified.
-     * @return Response
+     * @param  string  $threadId The ID of the thread to modify. Only the `metadata` can be modified.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -47,8 +46,8 @@ class Threads extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to delete.
-     * @return Response
+     * @param  string  $threadId The ID of the thread to delete.
+     *
      * @throws ReflectionException
      * @throws Throwable
      */
@@ -57,9 +56,7 @@ class Threads extends BaseResource
         return $this->connector->send(new DeleteThread($threadId));
     }
 
-
     /**
-     * @return Response
      * @throws ReflectionException
      * @throws Throwable
      */

@@ -15,17 +15,11 @@ class OpenAI
         $this->connector = new OpenAIConnector();
     }
 
-    /**
-     * @return Assistants
-     */
     public function assistants(): Assistants
     {
         return new Assistants($this->connector);
     }
 
-    /**
-     * @return Models
-     */
     public function models(): Models
     {
         return new Models($this->connector);
