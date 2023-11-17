@@ -1,31 +1,34 @@
 <?php
 
-namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
+namespace ChrisReedIO\OpenAI\SDK\Requests\Runs;
 
-use ChrisReedIO\OpenAI\SDK\Data\AssistantObject;
+use ChrisReedIO\OpenAI\SDK\Data\RunObject;
 use ChrisReedIO\OpenAI\SDK\Enums\ListOrder;
 use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
-use Saloon\PaginationPlugin\Contracts\Paginatable;
+
+use function array_filter;
 
 /**
- * listAssistants
+ * listRuns
  */
-class ListAssistants extends Request implements Paginatable
+class ListRuns extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return '/assistants';
+        return "/threads/{$this->threadId}/runs";
     }
 
     /**
-     * @param  ListOrder  $order Sort order by the `created_at` timestamp of the objects.
+     * @param  string  $threadId The ID of the thread the run belongs to.
+     * @param  ListOrder  $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
      */
     public function __construct(
+        protected string $threadId,
         protected ListOrder $order = ListOrder::Descending,
     ) {
     }
@@ -43,7 +46,7 @@ class ListAssistants extends Request implements Paginatable
     public function createDtoFromResponse(Response $response): array
     {
         return $response->collect('data')->map(
-            AssistantObject::fromArray(...)
+            RunObject::fromArray(...)
         )->all();
     }
 }

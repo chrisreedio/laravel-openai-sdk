@@ -18,6 +18,7 @@
     "require": {
         "php": "^8.1",
         "illuminate/contracts": "^10.0",
+        "saloonphp/pagination-plugin": "^2.0",
         "saloonphp/saloon": "^3.0",
         "spatie/laravel-package-tools": "^1.14.0"
     },
@@ -72,10 +73,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ChrisReedIO\\OpenAI\\SDK\\OpenAiClientServiceProvider"
+                "ChrisReedIO\\OpenAI\\SDK\\OpenAIServiceProvider"
             ],
             "aliases": {
-                "OpenAiClient": "ChrisReedIO\\OpenAI\\SDK\\Facades\\OpenAiClient"
+                "OpenAI": "ChrisReedIO\\OpenAI\\SDK\\Facades\\OpenAI"
             }
         }
     },

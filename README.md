@@ -1,19 +1,19 @@
-# OpenAI integration for Laravel via Saloon
+# OpenAI integration for Laravel
+
+![Logo](https://user-images.githubusercontent.com/77644584/283772029-f0a76b76-321c-4ad3-acf9-12b6304de379.png)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/chrisreedio/laravel-openai-sdk.svg?style=flat-square)](https://packagist.org/packages/chrisreedio/laravel-openai-sdk)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/chrisreedio/laravel-openai-sdk/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/chrisreedio/laravel-openai-sdk/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/chrisreedio/laravel-openai-sdk/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/chrisreedio/laravel-openai-sdk/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/chrisreedio/laravel-openai-sdk.svg?style=flat-square)](https://packagist.org/packages/chrisreedio/laravel-openai-sdk)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package provides a SDK for the OpenAI API.
 
-## Support us
+> [!NOTE]
+> This package is still in development and is not ready for production use. 
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-openai-sdk.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-openai-sdk)
+It is proudly powered by [Saloon](https://docs.saloon.dev/) by [Sam Carré](https://github.com/Sammyjo20)! 🤠
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -40,6 +40,8 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'max_per_page' => 100,
+    'api_key' => env('OPENAI_API_KEY'),
 ];
 ```
 
@@ -52,8 +54,19 @@ php artisan vendor:publish --tag="laravel-openai-sdk-views"
 ## Usage
 
 ```php
-$openAiClient = new ChrisReedIO\\OpenAI\\SDK\OpenAiClient();
-echo $openAiClient->echoPhrase('Hello, ChrisReedIO\\OpenAI\\SDK!');
+use ChrisReedIO\OpenAI\Facades\OpenAI;
+
+// Get a list of all the assistants
+$assistants = OpenAI::assistants()->list()->collect()->all();
+
+// or via a Lazy Collection
+$assistants = OpenAI::assistants()->list()->collect();
+$assistants->each(function ($assistant) {
+    // Do something with the assistant
+});
+
+// Create a thread
+$thread = OpenAI::threads()->create();
 ```
 
 ## Testing
