@@ -2,7 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Data;
 
-class ModelDto
+class ModelObject
 {
     public function __construct(
         public string $id,
@@ -12,7 +12,7 @@ class ModelDto
     ) {
     }
 
-    public static function fromItem(array $item): self
+    public static function fromArray(array $item): self
     {
         return new self(
             id: $item['id'],

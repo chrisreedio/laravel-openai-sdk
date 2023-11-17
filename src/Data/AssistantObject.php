@@ -2,14 +2,14 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Data;
 
-class AssistantDto
+class AssistantObject
 {
     public function __construct(
         public string $id,
         public string $object,
         public int $created_at,
         public string $name,
-        public string $description,
+        public ?string $description,
         public string $model,
         public string $instructions,
         public array $tools,
@@ -18,8 +18,9 @@ class AssistantDto
     ) {
     }
 
-    public static function fromItem(array $item): self
+    public static function fromArray(array $item): self
     {
+        // dd($item);
         return new self(
             id: $item['id'],
             object: $item['object'],
