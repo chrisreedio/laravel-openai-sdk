@@ -2,7 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Tests;
 
-use ChrisReedIO\OpenAI\SDK\OpenAiClientServiceProvider;
+use ChrisReedIO\OpenAI\SDK\OpenAIServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'ChrisReedIO\\OpenAI\\SDK\\OpenAiClient\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'ChrisReedIO\\OpenAI\\SDK\\OpenAI\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            OpenAiClientServiceProvider::class,
+            OpenAIServiceProvider::class,
         ];
     }
 

@@ -2,11 +2,11 @@
 
 namespace ChrisReedIO\OpenAI\SDK;
 
-use ChrisReedIO\OpenAI\SDK\Commands\OpenAiClientCommand;
+use ChrisReedIO\OpenAI\SDK\Commands\OpenAICommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class OpenAiClientServiceProvider extends PackageServiceProvider
+class OpenAIServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -20,6 +20,6 @@ class OpenAiClientServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasMigration('create_laravel-openai-sdk_table')
-            ->hasCommand(OpenAiClientCommand::class);
+            ->hasCommand(OpenAICommand::class);
     }
 }

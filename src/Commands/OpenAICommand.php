@@ -4,7 +4,7 @@ namespace ChrisReedIO\OpenAI\SDK\Commands;
 
 use Illuminate\Console\Command;
 
-class OpenAiClientCommand extends Command
+class OpenAICommand extends Command
 {
     public $signature = 'laravel-openai-sdk';
 
