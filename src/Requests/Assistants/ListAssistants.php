@@ -23,12 +23,11 @@ class ListAssistants extends Request implements Paginatable
     }
 
     /**
-     * @param ListOrder $order Sort order by the `created_at` timestamp of the objects.
+     * @param  ListOrder  $order Sort order by the `created_at` timestamp of the objects.
      */
     public function __construct(
         protected ListOrder $order = ListOrder::Descending,
-    )
-    {
+    ) {
     }
 
     public function defaultQuery(): array
