@@ -2,6 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Resources;
 
+use ChrisReedIO\OpenAI\SDK\Enums\ListOrder;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\CreateAssistant;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\DeleteAssistant;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\GetAssistant;
@@ -20,17 +21,17 @@ class Assistants extends BaseResource
     }
 
     /**
-     * @param  ?int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
-     * @param  ?string $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
-     * @param  ?string $before A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.
-     *
-     * @throws ReflectionException
-     * @throws Throwable
+     * @param ListOrder|null $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
+     * @param int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
+     * @return Paginator
      */
-    public function list(?int $limit, ?string $order, ?string $before): Paginator
+    public function list(?ListOrder $order = null, int $limit = 100): Paginator
     {
-        // return $this->connector->send(new ListAssistants($limit, $order, $before));
-        return $this->connector->paginate(new ListAssistants($limit, $order, $before));
+        if ($limit > config('openai-sdk.max_per_page', 100)) {
+            throw new \InvalidArgumentException("Limit cannot exceed " . config('openai-sdk.max_per_page', 100));
+        }
+
+        return $this->connector->paginate(new ListAssistants($order))->setPerPageLimit($limit);
     }
 
     /**
