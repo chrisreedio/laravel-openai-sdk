@@ -72,10 +72,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OpenAIServiceProvider"
+                "ChrisReedIO\\OpenAI\\SDK\\OpenAIServiceProvider"
             ],
             "aliases": {
-                "OpenAiClient": "OpenAI"
+                "OpenAI": "ChrisReedIO\\OpenAI\\SDK\\Facades\\OpenAI"
             }
         }
     },
