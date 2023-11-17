@@ -2,7 +2,6 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Requests\Models;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,20 +10,18 @@ use Saloon\Http\Request;
  */
 class RetrieveModel extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/models/{$this->model}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/models/{$this->model}";
-	}
-
-
-	/**
-	 * @param string $model The ID of the model to use for this request
-	 */
-	public function __construct(
-		protected string $model,
-	) {
-	}
+    /**
+     * @param  string  $model The ID of the model to use for this request
+     */
+    public function __construct(
+        protected string $model,
+    ) {
+    }
 }

@@ -3,7 +3,6 @@
 namespace ChrisReedIO\OpenAI\SDK\Requests\Models;
 
 use ChrisReedIO\OpenAI\SDK\Data\ModelDto;
-use DateTime;
 use Illuminate\Support\Collection;
 use JsonException;
 use Saloon\Enums\Method;
@@ -17,10 +16,9 @@ class ListModels extends Request
 {
     protected Method $method = Method::GET;
 
-
     public function resolveEndpoint(): string
     {
-        return "/models";
+        return '/models';
     }
 
     /**
