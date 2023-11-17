@@ -5,6 +5,7 @@ namespace ChrisReedIO\OpenAI\SDK;
 use ChrisReedIO\OpenAI\SDK\Connectors\OpenAIConnector;
 use ChrisReedIO\OpenAI\SDK\Resources\Assistants;
 use ChrisReedIO\OpenAI\SDK\Resources\Models;
+use ChrisReedIO\OpenAI\SDK\Resources\Threads;
 
 class OpenAI
 {
@@ -23,5 +24,10 @@ class OpenAI
     public function models(): Models
     {
         return new Models($this->connector);
+    }
+
+    public function threads(): Threads
+    {
+        return new Threads($this->connector);
     }
 }

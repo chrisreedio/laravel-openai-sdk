@@ -2,8 +2,14 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Requests\Runs;
 
+use ChrisReedIO\OpenAI\SDK\Data\AssistantObject;
+use ChrisReedIO\OpenAI\SDK\Data\RunObject;
+use ChrisReedIO\OpenAI\SDK\Enums\ListOrder;
+use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
+use function array_filter;
 
 /**
  * listRuns
@@ -18,21 +24,28 @@ class ListRuns extends Request
     }
 
     /**
-     * @param  string  $threadId The ID of the thread the run belongs to.
-     * @param  null|int  $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
-     * @param  null|string  $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
-     * @param  null|string  $before A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.
+     * @param string $threadId The ID of the thread the run belongs to.
+     * @param ListOrder $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
      */
     public function __construct(
         protected string $threadId,
-        protected ?int $limit = null,
-        protected ?string $order = null,
-        protected ?string $before = null,
+        protected ListOrder $order = ListOrder::Descending,
     ) {
     }
 
     public function defaultQuery(): array
     {
-        return array_filter(['limit' => $this->limit, 'order' => $this->order, 'before' => $this->before]);
+        return array_filter(['order' => $this->order->value]);
+    }
+
+    /**
+     * Cast the response to a collection of DTO objects.
+     * @throws JsonException
+     */
+    public function createDtoFromResponse(Response $response): array
+    {
+        return $response->collect('data')->map(
+            RunObject::fromArray(...)
+        )->all();
     }
 }

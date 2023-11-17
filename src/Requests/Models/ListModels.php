@@ -2,7 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Requests\Models;
 
-use ChrisReedIO\OpenAI\SDK\Data\ModelDto;
+use ChrisReedIO\OpenAI\SDK\Data\ModelObject;
 use Illuminate\Support\Collection;
 use JsonException;
 use Saloon\Enums\Method;
@@ -27,7 +27,7 @@ class ListModels extends Request
     public function createDtoFromResponse(Response $response): Collection
     {
         return $response->collect('data')->map(
-            ModelDto::fromItem(...)
+            ModelObject::fromArray(...)
         );
     }
 }

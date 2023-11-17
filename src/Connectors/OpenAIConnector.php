@@ -51,7 +51,8 @@ class OpenAIConnector extends Connector implements HasPagination
 
             protected function getPageItems(Response $response, Request $request): array
             {
-                return $response->json('data');
+                // return $response->json('data');
+                return $response->dtoOrFail();
             }
 
             protected function applyPagination(Request $request): Request

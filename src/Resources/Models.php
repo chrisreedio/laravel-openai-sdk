@@ -2,7 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Resources;
 
-use ChrisReedIO\OpenAI\SDK\Data\ModelDto;
+use ChrisReedIO\OpenAI\SDK\Data\ModelObject;
 use ChrisReedIO\OpenAI\SDK\Requests\Models\DeleteModel;
 use ChrisReedIO\OpenAI\SDK\Requests\Models\ListModels;
 use ChrisReedIO\OpenAI\SDK\Requests\Models\RetrieveModel;
@@ -14,7 +14,7 @@ use Throwable;
 class Models extends BaseResource
 {
     /**
-     * @return Collection<ModelDto>
+     * @return Collection<ModelObject>
      *
      * @throws ReflectionException
      * @throws Throwable

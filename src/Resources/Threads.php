@@ -2,6 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Resources;
 
+use ChrisReedIO\OpenAI\SDK\Data\ThreadObject;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\CreateThread;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\CreateThreadAndRun;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\DeleteThread;
@@ -17,24 +18,28 @@ class Threads extends BaseResource
      * @throws ReflectionException
      * @throws Throwable
      */
-    public function create(): Response
+    public function create(?array $messages = null, ?array $metadata = null): ThreadObject
     {
-        return $this->connector->send(new CreateThread());
+        return $this->connector->send(new CreateThread($messages, $metadata))->dtoOrFail();
     }
 
     /**
-     * @param  string  $threadId The ID of the thread to retrieve.
+     * @param string $threadId The ID of the thread to retrieve.
      *
      * @throws ReflectionException
      * @throws Throwable
      */
-    public function get(string $threadId): Response
+    public function get(string $threadId): ?ThreadObject
     {
-        return $this->connector->send(new GetThread($threadId));
+        $response = $this->connector->send(new GetThread($threadId));
+
+        if ($response->failed()) return null;
+
+        return $response->dto();
     }
 
     /**
-     * @param  string  $threadId The ID of the thread to modify. Only the `metadata` can be modified.
+     * @param string $threadId The ID of the thread to modify. Only the `metadata` can be modified.
      *
      * @throws ReflectionException
      * @throws Throwable
@@ -45,7 +50,7 @@ class Threads extends BaseResource
     }
 
     /**
-     * @param  string  $threadId The ID of the thread to delete.
+     * @param string $threadId The ID of the thread to delete.
      *
      * @throws ReflectionException
      * @throws Throwable
