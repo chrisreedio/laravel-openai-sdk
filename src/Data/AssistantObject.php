@@ -2,7 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Data;
 
-class AssistantObject
+class AssistantObject extends BaseObject
 {
     public function __construct(
         public string $id,

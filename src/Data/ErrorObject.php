@@ -5,7 +5,7 @@ namespace ChrisReedIO\OpenAI\SDK\Data;
 use JsonException;
 use Saloon\Http\Response;
 
-class ErrorObject
+class ErrorObject extends BaseObject
 {
     public function __construct(
         public string $message,

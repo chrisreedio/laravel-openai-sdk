@@ -2,7 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Data;
 
-class ModelObject
+class ModelObject extends BaseObject
 {
     public function __construct(
         public string $id,

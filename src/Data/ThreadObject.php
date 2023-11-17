@@ -2,7 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Data;
 
-class ThreadObject
+class ThreadObject extends BaseObject
 {
     public function __construct(
         public string $id,

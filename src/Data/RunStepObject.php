@@ -5,7 +5,7 @@ namespace ChrisReedIO\OpenAI\SDK\Data;
 use ChrisReedIO\OpenAI\SDK\Enums\RunStepStatus;
 use ChrisReedIO\OpenAI\SDK\Enums\RunStepType;
 
-class RunStepObject
+class RunStepObject extends BaseObject
 {
     public function __construct(
         public string $id,

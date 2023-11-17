@@ -4,7 +4,7 @@ namespace ChrisReedIO\OpenAI\SDK\Data;
 
 use ChrisReedIO\OpenAI\SDK\Enums\RunStatus;
 
-class RunObject
+class RunObject extends BaseObject
 {
     public function __construct(
         public string $id,

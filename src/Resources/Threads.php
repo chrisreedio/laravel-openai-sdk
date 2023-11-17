@@ -8,70 +8,49 @@ use ChrisReedIO\OpenAI\SDK\Requests\Threads\CreateThreadAndRun;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\DeleteThread;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\GetThread;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\ModifyThread;
-use ReflectionException;
 use Saloon\Http\Response;
-use Throwable;
 
 class Threads extends BaseResource
 {
     /**
-     * @throws ReflectionException
-     * @throws Throwable
+     * @param array|null $messages An array of messages that will be used to create the thread.
+     * @param array|null $metadata An optional mapping of metadata to be stored with the thread.
      */
     public function create(array $messages = null, array $metadata = null): ?ThreadObject
     {
-        $response = $this->connector->send(new CreateThread($messages, $metadata));
-        if ($response->failed()) {
-            return null;
-        }
-
-        return $response->dto();
+        return $this->sendRequest(new CreateThread($messages, $metadata));
     }
 
     /**
-     * @param  string  $threadId The ID of the thread to retrieve.
-     *
-     * @throws ReflectionException
-     * @throws Throwable
+     * @param string $threadId The ID of the thread to retrieve.
      */
     public function get(string $threadId): ?ThreadObject
     {
-        $response = $this->connector->send(new GetThread($threadId));
-        if ($response->failed()) {
-            return null;
-        }
-
-        return $response->dto();
+        return $this->sendRequest(new GetThread($threadId));
     }
 
     /**
-     * @param  string  $threadId The ID of the thread to modify. Only the `metadata` can be modified.
+     * @param string $threadId The ID of the thread to modify. Only the `metadata` can be modified.
      *
-     * @throws ReflectionException
-     * @throws Throwable
      */
-    public function modify(string $threadId): Response
+    public function modify(string $threadId): ?ThreadObject
     {
-        return $this->connector->send(new ModifyThread($threadId));
+        return $this->sendRequest(new ModifyThread($threadId));
     }
 
     /**
-     * @param  string  $threadId The ID of the thread to delete.
-     *
-     * @throws ReflectionException
-     * @throws Throwable
+     * @param string $threadId The ID of the thread to delete.
      */
-    public function delete(string $threadId): Response
+    public function delete(string $threadId): bool
     {
-        return $this->connector->send(new DeleteThread($threadId));
+        return $this->send(new DeleteThread($threadId))?->successful() ?? false;
     }
 
     /**
-     * @throws ReflectionException
-     * @throws Throwable
      */
-    public function createAndRun(): Response
+    public function createAndRun(): ?Response
     {
-        return $this->connector->send(new CreateThreadAndRun());
+        return $this->send(new CreateThreadAndRun());
     }
+
 }

@@ -2,6 +2,7 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Resources;
 
+use ChrisReedIO\OpenAI\SDK\Data\MessageObject;
 use ChrisReedIO\OpenAI\SDK\Requests\Messages\CreateMessage;
 use ChrisReedIO\OpenAI\SDK\Requests\Messages\GetMessage;
 use ChrisReedIO\OpenAI\SDK\Requests\Messages\ListMessages;
@@ -37,7 +38,7 @@ class Messages extends BaseResource
      * @throws ReflectionException
      * @throws Throwable
      */
-    public function create(string $threadId): Response
+    public function create(string $threadId): ?MessageObject
     {
         return $this->connector->send(new CreateMessage($threadId));
     }
