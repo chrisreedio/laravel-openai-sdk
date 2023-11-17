@@ -8,7 +8,6 @@ use ChrisReedIO\OpenAI\SDK\Requests\Threads\DeleteThread;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\GetThread;
 use ChrisReedIO\OpenAI\SDK\Requests\Threads\ModifyThread;
 use ReflectionException;
-use Saloon\Http\BaseResource;
 use Saloon\Http\Response;
 use Throwable;
 

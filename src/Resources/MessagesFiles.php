@@ -5,7 +5,6 @@ namespace ChrisReedIO\OpenAI\SDK\Resources;
 use ChrisReedIO\OpenAI\SDK\Requests\Messages\File\GetMessageFile;
 use ChrisReedIO\OpenAI\SDK\Requests\Messages\File\ListMessageFiles;
 use ReflectionException;
-use Saloon\Http\BaseResource;
 use Saloon\Http\Response;
 use Throwable;
 

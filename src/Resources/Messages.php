@@ -7,7 +7,6 @@ use ChrisReedIO\OpenAI\SDK\Requests\Messages\GetMessage;
 use ChrisReedIO\OpenAI\SDK\Requests\Messages\ListMessages;
 use ChrisReedIO\OpenAI\SDK\Requests\Messages\ModifyMessage;
 use ReflectionException;
-use Saloon\Http\BaseResource;
 use Saloon\Http\Response;
 use Throwable;
 

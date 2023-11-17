@@ -7,7 +7,6 @@ use ChrisReedIO\OpenAI\SDK\Requests\Assistants\File\DeleteAssistantFile;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\File\GetAssistantFile;
 use ChrisReedIO\OpenAI\SDK\Requests\Assistants\File\ListAssistantFiles;
 use ReflectionException;
-use Saloon\Http\BaseResource;
 use Saloon\Http\Response;
 use Throwable;
 

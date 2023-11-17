@@ -2,26 +2,19 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Connectors;
 
-use ChrisReedIO\OpenAI\SDK\Resources\Assistants;
-// use ChrisReedIO\OpenAI\SDK\Resource\Audio;
-// use ChrisReedIO\OpenAI\SDK\Resource\Chat;
-// use ChrisReedIO\OpenAI\SDK\Resource\Completions;
-// use ChrisReedIO\OpenAI\SDK\Resource\Edits;
-// use ChrisReedIO\OpenAI\SDK\Resource\Embeddings;
-// use ChrisReedIO\OpenAI\SDK\Resource\Files;
-// use ChrisReedIO\OpenAI\SDK\Resource\FineTunes;
-// use ChrisReedIO\OpenAI\SDK\Resource\FineTuning;
-// use ChrisReedIO\OpenAI\SDK\Resource\Images;
-// use ChrisReedIO\OpenAI\SDK\Resource\Moderations;
-use ChrisReedIO\OpenAI\SDK\Resources\Models;
 use Saloon\Http\Connector;
+use Saloon\Http\Request;
+use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\HasPagination;
+use Saloon\PaginationPlugin\CursorPaginator;
+use Saloon\PaginationPlugin\Paginator;
 
 /**
  * OpenAI API
  *
  * The OpenAI REST API. Please see https://platform.openai.com/docs/api-reference for more details.
  */
-class OpenAIConnector extends Connector
+class OpenAIConnector extends Connector implements HasPagination
 {
     public function resolveBaseUrl(): string
     {
@@ -33,6 +26,49 @@ class OpenAIConnector extends Connector
         $this->withTokenAuth(config('openai-sdk.api_key'));
     }
 
+    protected function defaultHeaders(): array
+    {
+        return [
+            'OpenAI-Beta' => 'assistants=v1',
+        ];
+    }
+
+    public function paginate(Request $request): Paginator
+    {
+        return new class(connector: $this, request: $request) extends CursorPaginator
+        {
+            protected ?int $perPageLimit = 100;
+
+            protected function getNextCursor(Response $response): int|string
+            {
+                return $response->json('last_id');
+            }
+
+            protected function isLastPage(Response $response): bool
+            {
+                return $response->json('has_more') === true;
+            }
+
+            protected function getPageItems(Response $response, Request $request): array
+            {
+                return $response->json('data');
+            }
+
+            protected function applyPagination(Request $request): Request
+            {
+                if ($this->currentResponse instanceof Response) {
+                    $request->query()->add('after', $this->getNextCursor($this->currentResponse));
+                }
+
+                if (isset($this->perPageLimit)) {
+                    $request->query()->add('limit', $this->perPageLimit);
+                }
+
+                return $request;
+            }
+        };
+    }
+
     // public function assistants(): Assistants
     // {
     //     return new Assistants($this);
@@ -42,7 +78,6 @@ class OpenAIConnector extends Connector
     // {
     //     return new Models($this);
     // }
-
     // public function audio(): Audio
     // {
     //     return new Audio($this);

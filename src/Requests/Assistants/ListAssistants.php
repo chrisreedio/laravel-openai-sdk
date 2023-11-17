@@ -4,11 +4,12 @@ namespace ChrisReedIO\OpenAI\SDK\Requests\Assistants;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * listAssistants
  */
-class ListAssistants extends Request
+class ListAssistants extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 

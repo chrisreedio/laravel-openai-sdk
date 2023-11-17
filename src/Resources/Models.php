@@ -11,7 +11,7 @@ use ReflectionException;
 use Saloon\Http\Response;
 use Throwable;
 
-class Models extends Resource
+class Models extends BaseResource
 {
     /**
      * @return Collection<ModelDto>
@@ -21,7 +21,7 @@ class Models extends Resource
      */
     public function list(): Collection
     {
-        return $this->send(new ListModels())->dtoOrFail();
+        return $this->connector->send(new ListModels())->dtoOrFail();
     }
 
     /**
@@ -32,7 +32,7 @@ class Models extends Resource
      */
     public function get(string $model): Response
     {
-        return $this->send(new RetrieveModel($model));
+        return $this->connector->send(new RetrieveModel($model));
     }
 
     /**
@@ -43,6 +43,6 @@ class Models extends Resource
      */
     public function delete(string $model): Response
     {
-        return $this->send(new DeleteModel($model));
+        return $this->connector->send(new DeleteModel($model));
     }
 }
