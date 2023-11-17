@@ -9,7 +9,8 @@ class ModelDto
         public string $object,
         public int $created,
         public string $owned_by,
-    ) { }
+    ) {
+    }
 
     public static function fromItem(array $item): self
     {
