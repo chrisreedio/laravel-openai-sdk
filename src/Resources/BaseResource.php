@@ -23,7 +23,6 @@ abstract class BaseResource
     /**
      * Send a request to the OpenAI API.
      *
-     * @param Request $request
      * @return ?Response
      */
     protected function send(Request $request): ?Response
@@ -40,7 +39,7 @@ abstract class BaseResource
     {
         $response = $this->send($request);
 
-        if (!$response || $response->failed()) {
+        if (! $response || $response->failed()) {
             return null;
         }
 

@@ -20,14 +20,14 @@ class Assistants extends BaseResource
 
     /**
      * List OpenAI Assistants
-     * @param ListOrder $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
-     * @param int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
-     * @return Paginator
+     *
+     * @param  ListOrder  $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
+     * @param  int  $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
      */
     public function list(ListOrder $order = ListOrder::Descending, int $limit = 100): Paginator
     {
         if ($limit > config('openai-sdk.max_per_page', 100)) {
-            throw new \InvalidArgumentException('Limit cannot exceed ' . config('openai-sdk.max_per_page', 100));
+            throw new \InvalidArgumentException('Limit cannot exceed '.config('openai-sdk.max_per_page', 100));
         }
 
         return $this->connector->paginate(new ListAssistants($order))->setPerPageLimit($limit);
@@ -43,7 +43,8 @@ class Assistants extends BaseResource
 
     /**
      * Retrieve an OpenAI Assistant
-     * @param string $assistantId The ID of the assistant to retrieve.
+     *
+     * @param  string  $assistantId The ID of the assistant to retrieve.
      */
     public function get(string $assistantId): ?AssistantObject
     {
@@ -52,7 +53,8 @@ class Assistants extends BaseResource
 
     /**
      * Modify an OpenAI Assistant
-     * @param string $assistantId The ID of the assistant to modify.
+     *
+     * @param  string  $assistantId The ID of the assistant to modify.
      */
     public function modify(string $assistantId): ?AssistantObject
     {
@@ -61,7 +63,8 @@ class Assistants extends BaseResource
 
     /**
      * Delete an OpenAI Assistant
-     * @param string $assistantId The ID of the assistant to delete.
+     *
+     * @param  string  $assistantId The ID of the assistant to delete.
      */
     public function delete(string $assistantId): bool
     {

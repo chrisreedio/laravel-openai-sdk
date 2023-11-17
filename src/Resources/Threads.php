@@ -13,8 +13,8 @@ use Saloon\Http\Response;
 class Threads extends BaseResource
 {
     /**
-     * @param array|null $messages An array of messages that will be used to create the thread.
-     * @param array|null $metadata An optional mapping of metadata to be stored with the thread.
+     * @param  array|null  $messages An array of messages that will be used to create the thread.
+     * @param  array|null  $metadata An optional mapping of metadata to be stored with the thread.
      */
     public function create(array $messages = null, array $metadata = null): ?ThreadObject
     {
@@ -22,7 +22,7 @@ class Threads extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to retrieve.
+     * @param  string  $threadId The ID of the thread to retrieve.
      */
     public function get(string $threadId): ?ThreadObject
     {
@@ -30,8 +30,7 @@ class Threads extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to modify. Only the `metadata` can be modified.
-     *
+     * @param  string  $threadId The ID of the thread to modify. Only the `metadata` can be modified.
      */
     public function modify(string $threadId): ?ThreadObject
     {
@@ -39,18 +38,15 @@ class Threads extends BaseResource
     }
 
     /**
-     * @param string $threadId The ID of the thread to delete.
+     * @param  string  $threadId The ID of the thread to delete.
      */
     public function delete(string $threadId): bool
     {
         return $this->send(new DeleteThread($threadId))?->successful() ?? false;
     }
 
-    /**
-     */
     public function createAndRun(): ?Response
     {
         return $this->send(new CreateThreadAndRun());
     }
-
 }
