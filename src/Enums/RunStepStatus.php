@@ -9,5 +9,5 @@ enum RunStepStatus: string
     case FAILED = 'failed';
     case COMPLETED = 'completed';
     case EXPIRED = 'expired';
-    
+
 }

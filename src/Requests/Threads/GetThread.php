@@ -21,16 +21,16 @@ class GetThread extends Request
     }
 
     /**
-     * @param string $threadId The ID of the thread to retrieve.
+     * @param  string  $threadId The ID of the thread to retrieve.
      */
     public function __construct(
         protected string $threadId,
-    )
-    {
+    ) {
     }
 
     /**
      * Cast the response to a DTO object.
+     *
      * @throws JsonException
      */
     public function createDtoFromResponse(Response $response): ThreadObject

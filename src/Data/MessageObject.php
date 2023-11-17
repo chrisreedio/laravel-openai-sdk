@@ -15,8 +15,7 @@ class MessageObject
         public ?string $run_id,
         public array $file_ids,
         public array $metadata
-    )
-    {
+    ) {
     }
 
     public static function fromArray(array $data): self

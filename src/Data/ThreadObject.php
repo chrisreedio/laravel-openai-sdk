@@ -9,8 +9,7 @@ class ThreadObject
         public string $object, // Should always be 'thread'
         public int $created_at,
         public array $metadata,
-    )
-    {
+    ) {
 
     }
 

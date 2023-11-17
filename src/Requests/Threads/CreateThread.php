@@ -27,8 +27,7 @@ class CreateThread extends Request implements HasBody
     public function __construct(
         protected ?array $messages = null,
         protected ?array $metadata = null,
-    )
-    {
+    ) {
 
     }
 
@@ -42,6 +41,7 @@ class CreateThread extends Request implements HasBody
 
     /**
      * Cast the response to a DTO object.
+     *
      * @throws JsonException
      */
     public function createDtoFromResponse(Response $response): ThreadObject

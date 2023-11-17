@@ -7,25 +7,24 @@ use ChrisReedIO\OpenAI\SDK\Enums\RunStatus;
 class RunObject
 {
     public function __construct(
-        public string    $id,
-        public string    $object, // Should always be 'thread.run'
-        public int       $created_at,
-        public string    $thread_id,
-        public string    $assistant_id,
+        public string $id,
+        public string $object, // Should always be 'thread.run'
+        public int $created_at,
+        public string $thread_id,
+        public string $assistant_id,
         public RunStatus $status, // Should make an enum here
-        public int       $started_at,
-        public ?int      $expires_at,
-        public ?int      $cancelled_at,
-        public ?int      $failed_at,
-        public ?int      $completed_at,
-        public ?string   $last_error,
-        public string    $model,
-        public ?string   $instructions,
-        public array     $tools,
-        public array     $file_ids,
-        public array     $metadata
-    )
-    {
+        public int $started_at,
+        public ?int $expires_at,
+        public ?int $cancelled_at,
+        public ?int $failed_at,
+        public ?int $completed_at,
+        public ?string $last_error,
+        public string $model,
+        public ?string $instructions,
+        public array $tools,
+        public array $file_ids,
+        public array $metadata
+    ) {
     }
 
     public static function fromArray(array $data): self

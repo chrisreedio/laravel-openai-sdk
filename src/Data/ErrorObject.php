@@ -12,8 +12,7 @@ class ErrorObject
         public string $type,
         public string $param,
         public string $code,
-    )
-    {
+    ) {
     }
 
     public static function fromArray(array $item): self
@@ -31,7 +30,7 @@ class ErrorObject
      */
     public static function fromResponse(Response $response): self
     {
-        $data = (array)$response->json();
+        $data = (array) $response->json();
 
         return new self(
             message: $data['message'],
@@ -40,5 +39,4 @@ class ErrorObject
             code: $data['code'],
         );
     }
-
 }

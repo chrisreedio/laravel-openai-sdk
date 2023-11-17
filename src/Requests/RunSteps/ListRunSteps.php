@@ -2,13 +2,13 @@
 
 namespace ChrisReedIO\OpenAI\SDK\Requests\RunSteps;
 
-use ChrisReedIO\OpenAI\SDK\Data\AssistantObject;
 use ChrisReedIO\OpenAI\SDK\Data\RunStepObject;
 use ChrisReedIO\OpenAI\SDK\Enums\ListOrder;
 use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+
 use function array_filter;
 
 /**
@@ -24,9 +24,9 @@ class ListRunSteps extends Request
     }
 
     /**
-     * @param string $threadId The ID of the thread the run and run steps belong to.
-     * @param string $runId The ID of the run that the run steps belong to.
-     * @param ListOrder $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
+     * @param  string  $threadId The ID of the thread the run and run steps belong to.
+     * @param  string  $runId The ID of the run that the run steps belong to.
+     * @param  ListOrder  $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
      */
     public function __construct(
         protected string $threadId,
@@ -42,6 +42,7 @@ class ListRunSteps extends Request
 
     /**
      * Cast the response to a collection of DTO objects.
+     *
      * @throws JsonException
      */
     public function createDtoFromResponse(Response $response): array

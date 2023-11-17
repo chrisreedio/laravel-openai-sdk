@@ -9,8 +9,7 @@ class AssistantFileObject
         public string $object, // Should always be 'assistant.file'
         public int $created_at,
         public string $assistant_id
-    )
-    {
+    ) {
 
     }
 

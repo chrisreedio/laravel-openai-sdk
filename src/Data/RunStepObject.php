@@ -8,23 +8,22 @@ use ChrisReedIO\OpenAI\SDK\Enums\RunStepType;
 class RunStepObject
 {
     public function __construct(
-        public string        $id,
-        public string        $object, // Should always be 'thread.run.step'
-        public int           $created_at,
-        public string        $assistant_id,
-        public string        $thread_id,
-        public string        $run_id,
-        public RunStepType   $type,
+        public string $id,
+        public string $object, // Should always be 'thread.run.step'
+        public int $created_at,
+        public string $assistant_id,
+        public string $thread_id,
+        public string $run_id,
+        public RunStepType $type,
         public RunStepStatus $status,
-        public array         $step_details,
-        public ?string       $last_error,
-        public ?int          $expired_at,
-        public ?int          $cancelled_at,
-        public ?int          $failed_at,
-        public int           $completed_at,
-        public array         $metadata
-    )
-    {
+        public array $step_details,
+        public ?string $last_error,
+        public ?int $expired_at,
+        public ?int $cancelled_at,
+        public ?int $failed_at,
+        public int $completed_at,
+        public array $metadata
+    ) {
     }
 
     public static function fromArray(array $data): self
