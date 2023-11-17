@@ -18,8 +18,8 @@ class OpenAIServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-openai-sdk')
             ->hasConfigFile();
-            // ->hasViews()
-            // ->hasMigration('create_laravel-openai-sdk_table')
-            // ->hasCommand(OpenAICommand::class);
+        // ->hasViews()
+        // ->hasMigration('create_laravel-openai-sdk_table')
+        // ->hasCommand(OpenAICommand::class);
     }
 }

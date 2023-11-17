@@ -20,7 +20,7 @@ class ListAssistants extends Request implements Paginatable
     }
 
     /**
-     * @param null|ListOrder $order Sort order by the `created_at` timestamp of the objects.
+     * @param  null|ListOrder  $order Sort order by the `created_at` timestamp of the objects.
      */
     public function __construct(
         protected ?ListOrder $order = null,

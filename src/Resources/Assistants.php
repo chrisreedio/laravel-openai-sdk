@@ -21,14 +21,13 @@ class Assistants extends BaseResource
     }
 
     /**
-     * @param ListOrder|null $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
-     * @param int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
-     * @return Paginator
+     * @param  ListOrder|null  $order Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.
+     * @param  int  $limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.
      */
-    public function list(?ListOrder $order = null, int $limit = 100): Paginator
+    public function list(ListOrder $order = null, int $limit = 100): Paginator
     {
         if ($limit > config('openai-sdk.max_per_page', 100)) {
-            throw new \InvalidArgumentException("Limit cannot exceed " . config('openai-sdk.max_per_page', 100));
+            throw new \InvalidArgumentException('Limit cannot exceed '.config('openai-sdk.max_per_page', 100));
         }
 
         return $this->connector->paginate(new ListAssistants($order))->setPerPageLimit($limit);
@@ -44,7 +43,7 @@ class Assistants extends BaseResource
     }
 
     /**
-     * @param string $assistantId The ID of the assistant to retrieve.
+     * @param  string  $assistantId The ID of the assistant to retrieve.
      *
      * @throws ReflectionException
      * @throws Throwable
@@ -55,7 +54,7 @@ class Assistants extends BaseResource
     }
 
     /**
-     * @param string $assistantId The ID of the assistant to modify.
+     * @param  string  $assistantId The ID of the assistant to modify.
      *
      * @throws ReflectionException
      * @throws Throwable
@@ -66,7 +65,7 @@ class Assistants extends BaseResource
     }
 
     /**
-     * @param string $assistantId The ID of the assistant to delete.
+     * @param  string  $assistantId The ID of the assistant to delete.
      *
      * @throws ReflectionException
      * @throws Throwable

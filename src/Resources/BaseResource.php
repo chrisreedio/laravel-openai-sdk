@@ -10,7 +10,6 @@ abstract class BaseResource
 {
     /**
      * Constructor
-     * @param OpenAIConnector $connector
      */
     public function __construct(readonly protected OpenAIConnector $connector)
     {

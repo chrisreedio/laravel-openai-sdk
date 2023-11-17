@@ -41,7 +41,7 @@ class OpenAIConnector extends Connector implements HasPagination
 
             protected function getNextCursor(Response $response): int|string
             {
-                return (string)$response->json('last_id');
+                return (string) $response->json('last_id');
             }
 
             protected function isLastPage(Response $response): bool
